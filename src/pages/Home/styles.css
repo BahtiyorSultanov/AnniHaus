@@ -1,0 +1,68 @@
+#app {
+    height: 100%;
+  }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+  
+  body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 1460px;
+    height: 100%;
+    margin: 0 auto;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #b54d4d;
+    height: 390px;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .swiper-button-prev{
+    background: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    height: 48px;
+    background-color: #ffffff;
+    width: 48px;
+    
+    background-image: url('http://127.0.0.1:5500/src/assets/icons/arr-left.svg');
+  }
+  .swiper-button-prev::after{
+      display: none;
+ }
+  .swiper-button-next{
+    border-radius: 50%;
+    background: center;
+    background-repeat: no-repeat;
+    height: 48px;
+    background-color: #ffffff;
+    width: 48px;
+    background-image: url('http://127.0.0.1:5500/src/assets/icons/arr-right.svg');
+  }
+  .swiper-button-next::after{
+      display: none;
+ }

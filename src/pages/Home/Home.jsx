@@ -72,18 +72,18 @@ function Home() {
       const { data } = await axios.get("http://localhost:3000/video");
       setVideo(data);
     }, 1000),
-    setTimeout(async () => {
-      const { data } = await axios.get(" http://localhost:3000/interiyers");
-      setInteryers(data);
-    }, 1000),
-    setTimeout(async () => {
-      const { data } = await axios.get("  http://localhost:3000/projects");
-      setProjects(data);
-    }, 1000),
-    setTimeout(async () => {
-      const { data } = await axios.get(" http://localhost:3000/blog");
-      setBlog(data);
-    }, 1000)
+    // setTimeout(async () => {
+    //   const { data } = await axios.get(" http://localhost:3000/interiyers");
+    //   setInteryers(data);
+    // }, 1000),
+    // setTimeout(async () => {
+    //   const { data } = await axios.get("  http://localhost:3000/projects");
+    //   setProjects(data);
+    // }, 1000),
+    // setTimeout(async () => {
+    //   const { data } = await axios.get(" http://localhost:3000/blog");
+    //   setBlog(data);
+    // }, 1000)
   );
   const prepend = () => {
     setSlides([
@@ -103,7 +103,7 @@ function Home() {
     swiperRef.slideTo(index - 1, 0);
   };
   return (
-    <div className="flex flex-col items-center gap-[60px]">
+    <div className="flex flex-col items-center gap-[60px] w-[100%]">
       <div className="">
         <Swiper
           pagination={{
@@ -112,17 +112,17 @@ function Home() {
           spaceBetween={102}
           navigation={true}
           modules={[Navigation]}
-          className="mySwiperr"
+          className="mySwiperr max-sm:w-[343px] max-sm:h-[202px]"
         >
           <SwiperSlide>
-            <img src="http://127.0.0.1:5500/src/assets/images/image1.svg" />
+            <img className=" max-sm:w-[343px] max-sm:h-[202px]" src={window.innerWidth <= 426?  "http://127.0.0.1:5500/src/assets/images/image22.svg":"http://127.0.0.1:5500/src/assets/images/image1.svg"} />
             <div className="absolute bottom-[40px] left-[50px] text-left text-white">
               <h1 className="text-[48px]">Скидка на столовые группы</h1>
               <h1 className="text-[16px]">Дополнительный текст-описание</h1>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="http://127.0.0.1:5500/src/assets/images/image1.svg" />
+            <img className=" max-sm:w-[343px] max-sm:h-[202px]" src={window.innerWidth <= 426?  "http://127.0.0.1:5500/src/assets/images/image22.svg":"http://127.0.0.1:5500/src/assets/images/image1.svg"} />
             <div className="absolute bottom-[40px] left-[50px] text-left text-white">
               <h1 className="text-[48px]">Скидка на столовые группы</h1>
               <h1 className="text-[16px]">Дополнительный текст-описание</h1>
@@ -130,7 +130,7 @@ function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="flex flex-wrap w-[1160px] gap-[30px]">
+      <div className="flex flex-wrap items-start w-[1160px] gap-[30px] max-sm:w-[350px] max-sm:gap-[10px]">
         {category.map((item, id) => {
           return (
             <div
@@ -138,7 +138,7 @@ function Home() {
               onClick={() => {
                 app.collection("newCards").add({ obj }), console.log(cards);
               }}
-              className="relative w-[360px] h-[181px] pb-[20px] pr-[30px] flex justify-end items-end "
+              className="relative w-[360px] h-[181px] max-sm:w-[168px] max-sm:h-[97px] pb-[20px] pr-[30px] flex justify-end items-end "
             >
               <img className="absolute left-0 top-0 " src={item.img} />
               <h1 className="absolute font-sans text-[25px] text-[#3B3B3B]">
@@ -147,11 +147,11 @@ function Home() {
             </div>
           );
         })}
-        <button className="w-[755px]">
+        <button className="w-[755px] max-sm:w-[343px]">
           <img src="http://127.0.0.1:5500/src/assets/images/img.svg" />
         </button>
       </div>
-      <div className="flex flex-col items-start gap-[30px]">
+      <div className="max-sm:w-[100%] flex flex-col items-start gap-[30px]">
         <div className="flex w-full justify-between items-center">
           <h1 className="text-[40px]">Новинки</h1>
           <h1 className="text-[16px] text-[#3B3B3B] flex gap-[20px] hover:underline">
@@ -159,14 +159,14 @@ function Home() {
             <img src="http://127.0.0.1:5500/src/assets/icons/Longarrow-right.svg" />
           </h1>
         </div>
-        <div className="flex items-center gap-[40px]">
+        <div className="flex w-[380px] flex-wrap items-center gap-[40px]">
           {cards &&
             cards.map((item, id) => {
               return (
                 item.kind == "New" && (
                   <div
                     key={id}
-                    className="w-[260px] h-[385px] relative flex flex-col items-start text-left gap-[20px]"
+                    className="w-[260px] h-[385px] max-sm:w-[164px] max-sm:h-[267px] relative flex flex-col items-start text-left gap-[20px]"
                   >
                     <img
                       src={item.img}
@@ -192,11 +192,11 @@ function Home() {
             })}
         </div>
       </div>
-      <div className="flex flex-col items-start gap-[30px] mt-[100px]">
-        <div className="flex flex-col items-start pl-[40px] gap-[30px]">
-          <h1 className="text-[40px]">Производство</h1>
-          <div className="flex items-center justify-end ">
-            <h1 className="text-[20px] w-[660px] text-left">
+      <div className="max-sm:w-[100%] flex flex-col items-start gap-[30px] mt-[100px]">
+        <div className="flex flex-col w-[100%] items-start pl-[40px] gap-[30px]">
+          <h1 className="text-[40px] max-sm:text-[20px]">Производство</h1>
+          <div className="flex flex-col items-start gap-[20px] justify-end ">
+            <h1 className="text-[20px] w-[660px] text-left max-sm:text-[14px] max-sm:w-[343px]">
               ANNI HAUS входит в состав холдинга Premier Group – группу торговых
               и производственных компаний с уникальным конструкторским бюро.
               Мебельная фабрика полного цикла находится в Санкт-Петербурге.
@@ -207,35 +207,36 @@ function Home() {
         <Swiper
           modules={[Virtual, Navigation, Pagination]}
           onSwiper={setSwiperRef}
-          slidesPerView={3}
+          slidesPerView={2}
           centeredSlides={false}
-          spaceBetween={41}
+          spaceBetween={50}
+          className="w-[425px]"
           pagination={{
             type: "none",
           }}
           navigation={true}
           virtual
         >
-          {cards &&
+          {video &&
             video.map((item) => {
               return (
-                <SwiperSlide className="bg-transparent">
+                <SwiperSlide className="bg-transparent max-sm:w-[167px] max-sm:h-[113px]">
                   <img
-                    className="w-full h-full rounded-[14px]"
-                    src={item.src}
+                    className="max-sm:w-[167px] rounded-[14px]"
+                    src={window.innerWidth <= 426 ? item.src:item.src1}
                   />
                 </SwiperSlide>
               );
             })}
         </Swiper>
       </div>
-      <div className="flex gap-[8px] relative mt-[100px]">
-        <h1 className="absolute z-30 top-[-80px] text-[40px] ">
+      <div className="max-sm:w-[100%] flex gap-[8px] relative mt-[100px]">
+        <h1 className="absolute z-30 top-[-80px] text-[40px] max-sm:text-[20px]">
           Ваши интерьеры
         </h1>
-        <div className="flex flex-col items-center gap-[8px]">
-          <div className="w-[460px] h-[235px] bg-[#4A5656] relative">
-            <h1 className="w-[365px] text-white text-[20px] absolute bottom-7 left-4 text-left">
+        <div className="flex flex-col items-center gap-[8px] w-[100%]">
+          <div className="w-[460px] h-[235px] max-sm:w-[343px] max-sm:h-[118px] bg-[#4A5656] relative">
+            <h1 className="w-[365px] text-white text-[20px] absolute bottom-7 left-4 text-left max-sm:text-[14px] max-sm:w-[300px]">
               Присылайте фотографии мебели в вашем интерьере, и мы разместим их
               на сайте.
             </h1>
@@ -245,7 +246,7 @@ function Home() {
             alt=""
           />
         </div>
-        <div className="flex flex-col items-center gap-[8px]">
+        <div className="flex flex-col items-center gap-[8px] max-sm:hidden w-[100%]">
           <div className="flex items-center gap-[8px]">
             <img
               src="http://127.0.0.1:5500/src/assets/images/image16.svg"
@@ -262,9 +263,9 @@ function Home() {
           />
         </div>
       </div>
-      <div className="flex flex-col items-start gap-[30px] mt-[50px]">
+      <div className="max-sm:w-[100%] flex flex-col items-center gap-[30px] mt-[50px]">
         <div className="flex flex-col items-start pl-[40px] gap-[30px]">
-          <h1 className="text-[40px] w-[444px] text-left">
+          <h1 className="text-[40px] w-[444px] text-left max-sm:text-[20px] max-sm:w-[320px]">
             Дизайнерские проекты с мебелью Anni Haus
           </h1>
         </div>
@@ -296,7 +297,7 @@ function Home() {
             })}
         </Swiper>
       </div>
-      <div className="flex flex-col items-start gap-[30px] mt-[50px]">
+      <div className="max-sm:w-[100%] flex flex-col items-start gap-[30px] mt-[50px]">
         <div className="flex w-full justify-start items-center px-[40px]">
           <h1 className="text-[40px]">Блог</h1>
         </div>
@@ -326,11 +327,11 @@ function Home() {
             })}
         </Swiper>
       </div>
-      <div className="flex flex-col items-start text-left w-[1460px] gap-[50px] mt-[50px]">
-        <h1 className="text-[40px] text-[#3B3B3B]">
+      <div className="max-sm:w-[100%] flex flex-col items-start text-left w-[1460px] gap-[50px] mt-[50px]">
+        <h1 className="text-[40px] text-[#3B3B3B] max-sm:text-[20px]">
           Дизайнерская мебель Anni Haus
         </h1>
-        <h1 className="text-[20px] text-[#3B3B3B] w-[820px]">
+        <h1 className="text-[20px] text-[#3B3B3B] w-[820px] max-sm:text-[16px] max-sm:w-[343px]">
           Вы ищете крупный мебельный салон, где можно приобрести стильную,
           удобную и надежную мебель разных стилей по наиболее выгодным ценам?
           <br />

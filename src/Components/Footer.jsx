@@ -2,8 +2,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="flex flex-col items-center gap-[30px] absolute left-0 w-[100%] bg-[#FAFAFA] mt-[170px]">
-      <div className="flex items-start gap-[150px] mt-[100px]">
+    <div className="flex flex-col items-center gap-[30px] absolute left-0 w-[100%] bg-[#FAFAFA] mt-[170px] max-sm:p-[7px] max-sm:mt-[70px]">
+      <div className="flex max-sm:flex-wrap max-sm:justify-center items-start gap-[150px] mt-[100px]">
         <ul className="text-[16px] text-[#3B3B3B] text-left flex flex-col gap-[10px]">
           <li className="text-[20px] font-bold">Каталог</li>
           <li>В наличии</li>
@@ -59,7 +59,7 @@ function Footer() {
       </div>
       <hr className="h-[3px] w-[100%]"/>
       <div
-        className="flex w-full justify-between px-[250px] text-[16px] text-[#3B3B3B]"
+        className="flex w-full justify-between px-[250px] max-sm:px-0 max-sm:px-[20px] max-sm:py-[30px] text-[16px] text-[#3B3B3B]"
       >
         <h1>© Anni Haus, 2000-2022</h1>
         <h1>design by omr.design</h1>

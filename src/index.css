@@ -8,3 +8,25 @@ body{
 #simple-menu{
   padding: 30px;
 }
+.EZDrawer__container {
+  height: 100% !important;
+}
+.EZDrawer__overlay {
+  height: 100% !important
+}
+.MuiFormControl-root{
+  margin-top: 20px !important;
+}
+.MuiList-root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  border-radius: 0%;
+}
+.MuiPaper-root{
+  margin-top: 20px !important;
+  border-radius: 0px !important;
+  left: 190px !important;
+} 

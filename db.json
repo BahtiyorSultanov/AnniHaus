@@ -3,6 +3,7 @@
         {
             "id": 1,
             "kind": "offer",
+            "img1":"http://127.0.0.1:5500/src/assets/images/image22.svg",
             "title": "-10 % на кровати и стулья",
             "img": "http://127.0.0.1:5500/src/assets/images/image20.svg",
             "prevue": "http://127.0.0.1:5500/src/assets/images/image21.svg",
@@ -12,6 +13,7 @@
         {
             "id": 1,
             "kind": "offer",
+            "img1":"http://127.0.0.1:5500/src/assets/images/image22.svg",
             "title": "-10 % на кровати и стулья",
             "img": "http://127.0.0.1:5500/src/assets/images/image20.svg",
             "prevue": "http://127.0.0.1:5500/src/assets/images/image21.svg",
@@ -21,6 +23,7 @@
         {
             "id": 1,
             "kind": "offer",
+            "img1":"http://127.0.0.1:5500/src/assets/images/image22.svg",
             "title": "-10 % на кровати и стулья",
             "img": "http://127.0.0.1:5500/src/assets/images/image20.svg",
             "prevue": "http://127.0.0.1:5500/src/assets/images/image21.svg",
@@ -31,7 +34,7 @@
     "products": [
         {
             "product": "chair",
-            "kind": "sale",
+            "kind": "New",
             "colors": [
                 "indigo",
                 "gold",
@@ -93,19 +96,23 @@
     "video": [
         {
             "id":1,
-            "src": "http://127.0.0.1:5500/src/assets/images/image13.svg"
+            "src": "http://127.0.0.1:5500/src/assets/images/image13.svg",
+            "src1":"http://127.0.0.1:5500/src/assets/images/image24.svg"
         },
         {
             "id":2,
-            "src": "http://127.0.0.1:5500/src/assets/images/image13.svg"
+            "src": "http://127.0.0.1:5500/src/assets/images/image13.svg",
+            "src1":"http://127.0.0.1:5500/src/assets/images/image24.svg"
         },
         {
             "id":3,
-            "src": "http://127.0.0.1:5500/src/assets/images/image13.svg"
+            "src": "http://127.0.0.1:5500/src/assets/images/image13.svg",
+            "src1":"http://127.0.0.1:5500/src/assets/images/image24.svg"
         },
         {
             "id":4,
-            "src": "http://127.0.0.1:5500/src/assets/images/image13.svg"
+            "src": "http://127.0.0.1:5500/src/assets/images/image13.svg",
+            "src1":"http://127.0.0.1:5500/src/assets/images/image24.svg"
         }
     ],
     "interiyers": [

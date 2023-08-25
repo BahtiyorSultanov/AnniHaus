@@ -42,7 +42,7 @@ function SpecialItem() {
   };
   return (
     <div className="">
-      <div className="flex flex-col gap-[30px]">
+      <div className="flex flex-col gap-[30px] items-start">
         <div className="">
           <img src={card.prevue} className="rounded-[8px]" />
           <span className="px-[32px] rounded-[48px] text-[#242424] text-[12px] py-[8px] border-[1px] border-[#EFCF2C]">
@@ -60,11 +60,12 @@ function SpecialItem() {
         </div>
         <div className="">
           <Swiper
+            className="ml-[-40px]"
             modules={[Virtual, Navigation, Pagination]}
             onSwiper={setSwiperRef}
             slidesPerView={3}
             centeredSlides={false}
-            spaceBetween={41}
+            spaceBetween={1}
             pagination={{
               type: "none",
             }}
@@ -75,12 +76,24 @@ function SpecialItem() {
               cards.map((item) => {
                 return (
                   item.kind == "sale" && (
-                    <SwiperSlide className="bg-transparent flex flex-col items-start">
-                      <img
-                        className="w-full h-full rounded-[14px] mb-[20px]"
-                        src={item.img}
-                      />
-                      <h1 className="w-[252px] text-left">{item.title}</h1>
+                    <SwiperSlide className="bg-transparent flex flex-col items-center">
+                      <div className="">
+                        <div className="w-[260px] h-[260px] rounded-[8px] border-[2px]">
+                          <img
+                            className="w-full h-full rounded-[14px] mb-[20px]"
+                            src={item.img}
+                          />
+                        </div>
+                        <h1 className="absolute w-[252px] text-left">
+                          {item.title}
+                        </h1>
+                        <div className="flex items-center justify-start gap-[20px]">
+                          {item.color &&
+                            item.color.map((imem) => {
+                              return <div className=""></div>;
+                            })}
+                        </div>
+                      </div>
                     </SwiperSlide>
                   )
                 );

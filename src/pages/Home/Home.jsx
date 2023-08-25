@@ -57,11 +57,34 @@ function Home() {
     },
   ];
   const [cards, setCards] = useState([]);
+  const [video, setVideo] = useState([]);
+  const [interyers, setInteryers] = useState([]);
+  const [blog, setBlog] = useState([]);
+  const [projects, setProjects] = useState([]);
   // Create array with 500 slides
-  const { data, isLoading } = useQuery("cards", async () => {
-    const { data } = await axios.get(" http://localhost:3000/cards");
-    setCards(data);
-  });
+  const { data, isLoading } = useQuery(
+    "cards",
+    async () => {
+      const { data } = await axios.get("http://localhost:3000/products");
+      setCards(data);
+    },
+    setTimeout(async () => {
+      const { data } = await axios.get("http://localhost:3000/video");
+      setVideo(data);
+    }, 1000),
+    setTimeout(async () => {
+      const { data } = await axios.get(" http://localhost:3000/interiyers");
+      setInteryers(data);
+    }, 1000),
+    setTimeout(async () => {
+      const { data } = await axios.get("  http://localhost:3000/projects");
+      setProjects(data);
+    }, 1000),
+    setTimeout(async () => {
+      const { data } = await axios.get(" http://localhost:3000/blog");
+      setBlog(data);
+    }, 1000)
+  );
   const prepend = () => {
     setSlides([
       `Slide ${prependNumber.current - 2}`,
@@ -94,18 +117,14 @@ function Home() {
           <SwiperSlide>
             <img src="http://127.0.0.1:5500/src/assets/images/image1.svg" />
             <div className="absolute bottom-[40px] left-[50px] text-left text-white">
-              <h1 className="text-[48px]">
-                Скидка на столовые группы
-              </h1>
+              <h1 className="text-[48px]">Скидка на столовые группы</h1>
               <h1 className="text-[16px]">Дополнительный текст-описание</h1>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <img src="http://127.0.0.1:5500/src/assets/images/image1.svg" />
             <div className="absolute bottom-[40px] left-[50px] text-left text-white">
-              <h1 className="text-[48px]">
-                Скидка на столовые группы
-              </h1>
+              <h1 className="text-[48px]">Скидка на столовые группы</h1>
               <h1 className="text-[16px]">Дополнительный текст-описание</h1>
             </div>
           </SwiperSlide>
@@ -115,6 +134,7 @@ function Home() {
         {category.map((item, id) => {
           return (
             <div
+              key={id}
               onClick={() => {
                 app.collection("newCards").add({ obj }), console.log(cards);
               }}
@@ -141,10 +161,13 @@ function Home() {
         </div>
         <div className="flex items-center gap-[40px]">
           {cards &&
-            cards.map((item) => {
+            cards.map((item, id) => {
               return (
                 item.kind == "New" && (
-                  <div className="w-[260px] h-[385px] relative flex flex-col items-start text-left gap-[20px]">
+                  <div
+                    key={id}
+                    className="w-[260px] h-[385px] relative flex flex-col items-start text-left gap-[20px]"
+                  >
                     <img
                       src={item.img}
                       className="w-[260px] h-[260px] rounded-[8px] border-[2px]"
@@ -153,9 +176,10 @@ function Home() {
                     <h1 className="text-[16px]">{item.price}</h1>
                     <div className="flex items-center gap-[10px]">
                       {item.colors &&
-                        item.colors.map((item) => {
+                        item.colors.map((item, key) => {
                           return (
                             <div
+                              key={key}
                               className={`w-[16px] h-[16px] rounded-[50%]`}
                               style={{ background: item }}
                             ></div>
@@ -193,90 +217,14 @@ function Home() {
           virtual
         >
           {cards &&
-            cards.map((item) => {
+            video.map((item) => {
               return (
-                item.kind == "video" && (
-                  <SwiperSlide className="bg-transparent">
-                    <img
-                      className="w-full h-full rounded-[14px]"
-                      src={item.img}
-                    />
-                  </SwiperSlide>
-                )
-              );
-            })}
-        </Swiper>
-      </div>
-      <div className="flex flex-col items-start gap-[30px] mt-[50px]">
-        <div className="flex flex-col items-start pl-[40px] gap-[30px]">
-          <h1 className="text-[40px]">Производство</h1>
-          <div className="flex items-center justify-end ">
-            <h1 className="text-[20px] w-[660px] text-left">
-              ANNI HAUS входит в состав холдинга Premier Group – группу торговых
-              и производственных компаний с уникальным конструкторским бюро.
-              Мебельная фабрика полного цикла находится в Санкт-Петербурге.
-            </h1>
-            <h1>видео о производстве</h1>
-          </div>
-        </div>
-        <Swiper
-          modules={[Virtual, Navigation, Pagination]}
-          onSwiper={setSwiperRef}
-          slidesPerView={3}
-          centeredSlides={false}
-          spaceBetween={41}
-          pagination={{
-            type: "none",
-          }}
-          navigation={true}
-          virtual
-        >
-          {cards &&
-            cards.map((item) => {
-              return (
-                item.kind == "projects" && (
-                  <SwiperSlide className="bg-transparent w-[284px] h-[614px]">
-                    <img
-                      className="w-full h-full rounded-[14px]"
-                      src={item.img}
-                    />
-                    <h1 className="absolute bottom-3 left-5 text-white text-[16px] w-[262px] text-left">
-                      {item.title}
-                    </h1>
-                  </SwiperSlide>
-                )
-              );
-            })}
-        </Swiper>
-      </div>
-      <div className="flex flex-col items-start gap-[30px] mt-[50px]">
-        <div className="flex w-full justify-start items-center px-[40px]">
-          <h1 className="text-[40px]">Блог</h1>
-        </div>
-        <Swiper
-          modules={[Virtual, Navigation, Pagination]}
-          onSwiper={setSwiperRef}
-          slidesPerView={3}
-          centeredSlides={false}
-          spaceBetween={41}
-          pagination={{
-            type: "none",
-          }}
-          navigation={true}
-          virtual
-        >
-          {cards &&
-            cards.map((item) => {
-              return (
-                item.kind == "blog" && (
-                  <SwiperSlide className="bg-transparent flex flex-col items-start">
-                    <img
-                      className="w-full h-full rounded-[14px] mb-[20px]"
-                      src={item.img}
-                    />
-                    <h1 className="w-[252px] text-left">{item.title}</h1>
-                  </SwiperSlide>
-                )
+                <SwiperSlide className="bg-transparent">
+                  <img
+                    className="w-full h-full rounded-[14px]"
+                    src={item.src}
+                  />
+                </SwiperSlide>
               );
             })}
         </Swiper>
@@ -313,6 +261,70 @@ function Home() {
             alt=""
           />
         </div>
+      </div>
+      <div className="flex flex-col items-start gap-[30px] mt-[50px]">
+        <div className="flex flex-col items-start pl-[40px] gap-[30px]">
+          <h1 className="text-[40px] w-[444px] text-left">
+            Дизайнерские проекты с мебелью Anni Haus
+          </h1>
+        </div>
+        <Swiper
+          modules={[Virtual, Navigation, Pagination]}
+          onSwiper={setSwiperRef}
+          slidesPerView={3}
+          centeredSlides={false}
+          spaceBetween={41}
+          pagination={{
+            type: "none",
+          }}
+          navigation={true}
+          virtual
+        >
+          {projects &&
+            projects.map((item) => {
+              return (
+                <SwiperSlide className="bg-transparent w-[284px] h-[614px]">
+                  <img
+                    className="w-full h-full rounded-[14px]"
+                    src={item.img}
+                  />
+                  <h1 className="absolute bottom-3 left-5 text-white text-[16px] w-[262px] text-left">
+                    {item.title}
+                  </h1>
+                </SwiperSlide>
+              );
+            })}
+        </Swiper>
+      </div>
+      <div className="flex flex-col items-start gap-[30px] mt-[50px]">
+        <div className="flex w-full justify-start items-center px-[40px]">
+          <h1 className="text-[40px]">Блог</h1>
+        </div>
+        <Swiper
+          modules={[Virtual, Navigation, Pagination]}
+          onSwiper={setSwiperRef}
+          slidesPerView={3}
+          centeredSlides={false}
+          spaceBetween={41}
+          pagination={{
+            type: "none",
+          }}
+          navigation={true}
+          virtual
+        >
+          {blog &&
+            blog.map((item) => {
+              return (
+                <SwiperSlide className="bg-transparent flex flex-col items-start">
+                  <img
+                    className="w-full h-full rounded-[14px] mb-[20px]"
+                    src={item.img}
+                  />
+                  <h1 className="w-[252px] text-left">{item.title}</h1>
+                </SwiperSlide>
+              );
+            })}
+        </Swiper>
       </div>
       <div className="flex flex-col items-start text-left w-[1460px] gap-[50px] mt-[50px]">
         <h1 className="text-[40px] text-[#3B3B3B]">

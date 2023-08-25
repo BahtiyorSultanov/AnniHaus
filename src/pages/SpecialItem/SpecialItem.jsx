@@ -77,8 +77,8 @@ function SpecialItem() {
             {cards &&
               cards.map((item, key) => {
                 return (
-                  item.kind == "sale" && (
-                    <SwiperSlide className="bg-transparent flex flex-col items-center">
+                  item.kind == "sale"&& item.product == 'chair' && (
+                    <SwiperSlide className="bg-transparent flex flex-col items-center justify-center">
                       <div className="" key={key}>
                         <div className="w-[260px] h-[260px] rounded-[8px] border-[2px]">
                           <img

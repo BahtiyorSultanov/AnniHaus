@@ -123,8 +123,8 @@ function Navbar() {
           <input
             type="text"
             className={`${
-              search ? " w-[812px] pl-[50px]" : "w-[0px] border-[0px]"
-            } text-[20px] transition-[10000ms] h-[48px] rounded-[45px] border-[2px] relative z-[0]`}
+              search ? " w-[812px] pl-[50px] border-[2px]" : "w-[0px] border-[0px]"
+            } text-[20px] transition-[0.9s] h-[48px] rounded-[45px] relative z-[0]`}
           />
           <img
             onClick={() => {
